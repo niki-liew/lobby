@@ -2,8 +2,92 @@
 
 <h1>lobby</h1>
 
+<div class="center">
+<canvas id="canvas" width="500" height="500"></canvas>
+</div>
+
 <a href='teaching/main.html'><h2>teaching</h2></a>
 <a href='filming/main.html'><h2>filming</h2></a>
 <a href='programming/main.html'><h2>programming</h2></a>
 
 <p>niki liew</p>
+
+<script>
+    const canvas = document.getElementById('canvas')
+
+    const canvasW = 500
+    const canvasH = 500
+
+    const ctx = canvas.getContext("2d");
+
+    var x = 100
+    var y = 100
+    var size = 50
+    
+    var xD = 0
+    var yD = 1
+
+    function drawRect(x1, y1, x2, y2, colour)
+    {
+        ctx.fillStyle = colour;
+        ctx.fillRect(x1, y1, x2, y2);
+    }
+
+    function clear()
+    {
+        drawRect(0, 0, canvasW, canvasH, "black")
+    }
+
+    function draw()
+    {
+        drawRect(x, y, size, size, "white")
+    }
+
+    function update()
+    {
+        if (xD == 0)
+        {
+            x += 1
+        }
+        if (xD == 1)
+        {
+            x -= 1
+        }
+        if (yD == 0)
+        {
+            y += 1
+        }
+        if (yD == 1)
+        {
+            y -= 1
+        }
+
+        if (x < 0)
+        {
+            xD = 0
+        }
+        if (x > canvasW)
+        {
+            xD = 1
+        }
+        if (y < 0)
+        {
+            yD = 0
+        }
+        if (y > canvasH)
+        {
+            yD = 1
+        }
+
+        clear()
+        draw()
+
+        console.log(x, y, xD, yD)
+    }
+
+    window.onload = function() 
+    {
+		setInterval(update, 1)
+	}
+
+</script>

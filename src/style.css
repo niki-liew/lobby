@@ -12,3 +12,7 @@ p {
     text-align: center;
     font-family: 'Cascadia Mono';
 }
+
+.center {
+    text-align: center;
+}
