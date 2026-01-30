@@ -15,17 +15,20 @@
 <script>
     const canvas = document.getElementById('canvas')
 
-    const canvasW = 500
+    const canvasW = 600
     const canvasH = 500
 
     const ctx = canvas.getContext("2d");
 
-    var x = 100
-    var y = 100
+    ctx.canvas.width  = canvasW
+    ctx.canvas.height = canvasH
+
     var size = 50
+    var x = Math.floor(Math.random() * canvasW - size)
+    var y = Math.floor(Math.random() * canvasH - size)
     
-    var xD = 0
-    var yD = 1
+    var xD = Math.floor(Math.random() * 2)
+    var yD = Math.floor(Math.random() * 2)
 
     function drawRect(x1, y1, x2, y2, colour)
     {
